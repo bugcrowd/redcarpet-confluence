@@ -282,4 +282,21 @@ describe Redcarpet::Confluence do
       )
     end
   end
+
+  describe 'with html' do
+    # Note: we can't call renderer.raw_html directly because of how the redcarpet C extensions work
+    def render(str, render_opts = {})
+      Redcarpet::Markdown.new(described_class.new(render_opts)).render(str)
+    end
+
+    it 'passes through by default' do
+      expect(render('<script>alert();</script>')).to include('<script>alert();</script>')
+    end
+
+    it 'respects escape_html' do
+      expect(render('<script>alert();</script>', escape_html: true)).to(
+        include('&lt;script&gt;alert();&lt;/script&gt;')
+      )
+    end
+  end
 end

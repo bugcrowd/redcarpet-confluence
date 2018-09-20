@@ -4,7 +4,7 @@ require 'redcarpet'
 
 module Redcarpet
   # Public: A Redcarpet renderer to convert Markdown to Confluence syntax.
-  class Confluence < Redcarpet::Render::Base
+  class Confluence < Redcarpet::Render::HTML
   
     # Internal: Languages supported by the code macro.
     CODE_MACRO_LANGUAGES = %w(
