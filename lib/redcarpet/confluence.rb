@@ -14,7 +14,7 @@ module Redcarpet
     # Internal: List item delimiters used by Confluence.
     LIST_ITEM_DELIMITER = %w( # * )
     # Internal: Reserved character sequences in Confluence that need to be escaped when not intended to be used.
-    RESERVED_SEQUENCES = %w( { } [ ] - + * _ ^ ~ ?? bq. )
+    RESERVED_SEQUENCES = %w( { } [ ] + * _ ^ ~ ?? bq. )
   
     def block_code(code, language)
       supported_language = CODE_MACRO_LANGUAGES.find { |lang| lang == language }
